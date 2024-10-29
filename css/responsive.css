@@ -1,0 +1,64 @@
+/* Tablet Styles */
+@media (max-width: 768px) {
+    .hero {
+        padding: 6rem 2rem;
+        background-attachment: scroll;
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        padding: 0 1rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    form {
+        margin: 0 1rem;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .hero {
+        padding: 4rem 1rem;
+        min-height: 400px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    .benefits {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+} 
