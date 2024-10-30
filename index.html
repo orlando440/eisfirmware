@@ -30,6 +30,11 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/utilities.css">
 </head>
 <body class="font-['Inter']">
     <!-- Navigation -->
@@ -503,109 +508,7 @@
         </div>
     </footer>
 
-    <script>
-    document.getElementById('contactForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Reset all error messages
-        this.querySelectorAll('p.text-red-600').forEach(p => p.classList.add('hidden'));
-        this.querySelectorAll('input, textarea').forEach(input => {
-            input.classList.remove('border-red-500');
-        });
-
-        // Validate all required fields
-        let isValid = true;
-        const requiredFields = this.querySelectorAll('[required]');
-        
-        requiredFields.forEach(field => {
-            if (!field.value) {
-                isValid = false;
-                showError(field, field.dataset.error || 'This field is required');
-            } else if (field.type === 'email' && !isValidEmail(field.value)) {
-                isValid = false;
-                showError(field, field.dataset.error);
-            } else if (field.minLength && field.value.length < field.minLength) {
-                isValid = false;
-                showError(field, field.dataset.error);
-            }
-        });
-
-        if (!isValid) {
-            return;
-        }
-
-        // Show loading state
-        const submitButton = this.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.innerHTML;
-        submitButton.innerHTML = 'Sending...';
-        submitButton.disabled = true;
-
-        // Get form data
-        const formData = new FormData(this);
-        
-        // Send to Formspark
-        fetch('https://submit-form.com/gzDDWXMhc', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(Object.fromEntries(formData))
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            // Show success message
-            document.getElementById('successMessage').classList.remove('hidden');
-            document.getElementById('errorMessage').classList.add('hidden');
-            // Reset form
-            this.reset();
-        })
-        .catch(error => {
-            // Show error message
-            document.getElementById('errorMessage').classList.remove('hidden');
-            document.getElementById('successMessage').classList.add('hidden');
-            console.error('Error:', error);
-        })
-        .finally(() => {
-            // Reset button state
-            submitButton.innerHTML = originalButtonText;
-            submitButton.disabled = false;
-        });
-    });
-
-    // Helper functions
-    function showError(field, message) {
-        const errorElement = field.nextElementSibling;
-        errorElement.textContent = message;
-        errorElement.classList.remove('hidden');
-        field.classList.add('border-red-500');
-    }
-
-    function isValidEmail(email) {
-        const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        return re.test(String(email).toLowerCase());
-    }
-
-    // Real-time validation
-    document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(field => {
-        field.addEventListener('input', function() {
-            if (this.required) {
-                const errorElement = this.nextElementSibling;
-                if (this.validity.valid && (!this.minLength || this.value.length >= this.minLength)) {
-                    errorElement.classList.add('hidden');
-                    this.classList.remove('border-red-500');
-                }
-            }
-        });
-    });
-
-    // Hide success/error messages when user starts typing again
-    document.getElementById('contactForm').addEventListener('input', function() {
-        document.getElementById('successMessage').classList.add('hidden');
-        document.getElementById('errorMessage').classList.add('hidden');
-    });
-    </script>
+    <script src="assets/js/form-validation.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html> 

@@ -1,0 +1,20 @@
+/* Spacing */
+.section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+/* Animations */
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-0.25rem);
+}
+
+/* Shadows */
+.shadow-custom {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+} 

@@ -1,0 +1,23 @@
+/* Base styles */
+:root {
+    --primary: #2b4c7e;
+    --secondary: #567ebb;
+    --accent: #ff6b6b;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Layout */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #1a1a1a;
+    line-height: 1.2;
+} 
