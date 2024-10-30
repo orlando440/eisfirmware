@@ -402,7 +402,20 @@
                 <div class="bg-white rounded-3xl shadow-2xl">
                     <div class="px-6 py-12 sm:p-12">
                         <h2 class="text-3xl font-bold text-center text-gray-900 mb-8">Get Started with Your Project</h2>
-                        <form action="https://submit-form.com/gzDDWXMhc" method="POST" class="space-y-6">
+                        
+                        <!-- Success Message (hidden by default) -->
+                        <div id="successMessage" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6" role="alert">
+                            <strong class="font-bold">Thank you!</strong>
+                            <p class="block sm:inline">We'll be in touch with you shortly.</p>
+                        </div>
+
+                        <!-- Error Message (hidden by default) -->
+                        <div id="errorMessage" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6" role="alert">
+                            <strong class="font-bold">Oops!</strong>
+                            <p class="block sm:inline">Something went wrong. Please try again.</p>
+                        </div>
+
+                        <form id="contactForm" class="space-y-6">
                             <!-- Name Field -->
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
@@ -479,5 +492,57 @@
             </div>
         </div>
     </footer>
+
+    <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitButton = this.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.innerHTML = 'Sending...';
+        submitButton.disabled = true;
+
+        // Get form data
+        const formData = new FormData(this);
+        
+        // Send to Formspark
+        fetch('https://submit-form.com/gzDDWXMhc', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(Object.fromEntries(formData))
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            // Show success message
+            document.getElementById('successMessage').classList.remove('hidden');
+            document.getElementById('errorMessage').classList.add('hidden');
+            // Reset form
+            this.reset();
+        })
+        .catch(error => {
+            // Show error message
+            document.getElementById('errorMessage').classList.remove('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+            console.error('Error:', error);
+        })
+        .finally(() => {
+            // Reset button state
+            submitButton.innerHTML = originalButtonText;
+            submitButton.disabled = false;
+        });
+    });
+
+    // Optional: Hide success/error messages when user starts typing again
+    document.getElementById('contactForm').addEventListener('input', function() {
+        document.getElementById('successMessage').classList.add('hidden');
+        document.getElementById('errorMessage').classList.add('hidden');
+    });
+    </script>
 </body>
 </html> 
