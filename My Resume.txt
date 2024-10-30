@@ -1,0 +1,70 @@
+
+Orlando J. Troncoso
+4623 Brumby Terrace
+Davie, FL 33314
+954-405-6846
+Orlando.J.Troncoso@gmail.com
+
+HIGHLIGHTS
+•	A seasoned Engineering leader with 20 years of experience in Embedded Software and Firmware Engineering
+•	Interests: Hardware bring-up, device driver development, design and implementation of communications protocols, cryptography, security and Machine Learning and Artificial Intelligence
+•	Passionate about working on all layers of the Firmware/Software engineering stack, from bare-metal, new-hardware bring up to developing for embedded Android AOSP or Embedded Linux operating systems
+
+EXPERIENCE:
+Lumerce LLC                                                             April 2023 to Present
+Principal Embedded Software
+•	Led the bring-up of new Android AOSP-based hardware utilizing Qualcomm and Quectel BSP, resulting in a successful product launch within tight deadlines.
+•	Developed and implemented 10+ kernel device drivers for various peripherals (LCD touch panels, USB hubs, Ethernet controllers, Backlight, Buzzer, Touch controllers and more)
+•	Customized Android Framework UI to accommodate client's unique functionality and branding requirements, delivering a seamless user experience.
+•	Designed and implemented test scripts for production manufacturers, streamlining the testing process and ensuring product quality.
+•	Created comprehensive documentation for test procedures and new development architectures, facilitating knowledge sharing and team collaboration.
+•	Architected and implemented a custom Android SuperUser framework, enabling granular control over root permissions for individual applications, resulting in a more secure and stable system environment.
+Crestron Electronics                                                  Nov 2010 to April 2023
+Principal Firmware Engineer
+•	Designed and implemented the low level HDCP2.2 crypto engine part in a STM32 microcontroller with FreeRTOS.
+•	Implemented the high level HDCP2.2 standard in firmware using PolarSSL cryptography library in an embedded Android AOSP system and a secure hardware chip.
+•	Responsible for bringing up custom board for the first time using Yocto for Embedded Linux.
+•	Responsible for schematic review to make sure we had enough resources for proper debugging and testing of our firmware.
+•	Responsible design and implementation of custom Windows CE 6 device C++ drivers for our custom FPGA IO processor.
+•	Implement programs to find all the embedded devices in the system and display them in table format.
+•	Implemented test program to test our custom hardware and also our SDRAM memory making sure that burst mode was also tested.
+•	Ported the bootloader to our custom hardware
+
+Crown Audio Inc (Harman International Inc)         Nov 2007 to Nov 2010
+Embedded Software Engineer
+•	Implement and maintain HiQnet Tcp/IP binary based protocol that controls and manage thousands of embedded systems at the same time.
+•	Design and implement device drivers for ethernet and any other embedded low level device (SPI, I2C).
+•	Implemented web interface for embedded devices
+•	Made software changes and improvements to the real time operating system used in house (uC/OS).
+•	Implement many of the features used in the IEEE standard Audio and Video over ethernet (AVB) real time protocol supported by our devices.
+•	Design and integrate functions and macros into uC/OS Real Time OS  to detect hard to find memory issues like memory leaks, stack corruptions, stack overflows, heap corruptions etc.
+•	Ported our environment and source code based on the Diab C compiler to Code Sourcery free GNU C/C++ tool chain for Coldfire.
+•	Ported our custom hardware to uCLinux/Eboot
+•	Experienced Agile techniques in our projects to iterate firmware faster for customers
+
+MedAvant Healthcare Solutions				         July 2006 to Nov 2007
+Embedded Software Developer
+•	Worked with Linux desktop and our custom embedded linux distribution
+•	Implement embedded C++ Client/Server software system to update and monitor thousands of embedded devices out in the field.
+•	Design and implement Java PC based software to search and identify embedded systems connected to a local network.
+•	Design and implement Java/XML PC based software to test various functionalities of embedded systems over Ethernet network and dialup.
+•	Implement JavaScript based Web interface for embedded devices.
+•	Implement various BASH shell script to do auto testing on power-up for embedded Linux devices
+
+LHP Software 					                   July 2005 to July 2006
+Software/Hardware Test Engineer
+•	Design and implement TestStand sequences to test equipment with hardware in the loop
+•	Modify and add new functionality to C# based software to interface with embedded test systems
+•	Design and implement RS232 device driver for test equipment
+•	Modify and debug existing embedded firmware to add additional functionality
+•	Debug software and hardware using oscilloscopes and other test equipment
+•	Generate documentation for Software/Hardware
+•	Electronic hardware development, modification and assembly
+•	Printed circuit board modification and repair
+•	Surface mount component soldering
+•	Electronic component/system test
+•	Electronic system troubleshooting
+
+EDUCATION:				
+
+Devry University: (BS) Electronics Engineering Technology from 2002 - 2005
