@@ -21,4 +21,112 @@
 /* Cards */
 .service-card {
     @apply bg-white rounded-2xl shadow-lg p-8 transition-all duration-300;
-} 
+}
+
+/* Logo Styles */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    position: relative;
+}
+
+.logo-main {
+    color: var(--primary);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    font-size: 1.75rem;
+}
+
+.logo-sub {
+    font-size: 0.85rem;
+    color: var(--secondary);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Mission Statement */
+.mission-statement {
+    position: relative;
+    background: linear-gradient(to bottom right, var(--white), var(--light-bg));
+    border-left: 4px solid var(--primary);
+}
+
+.mission-statement p {
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+/* CTA Button */
+.cta-button {
+    background-color: var(--accent);
+    color: #ffffff !important;
+    padding: 1.2rem 2.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button::after {
+    content: '→';
+    color: #ffffff;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    background-color: #ff8585;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.cta-button:hover::after {
+    transform: translateX(4px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 4rem 2rem;
+    margin-top: 6rem;
+}
+
+footer h3 {
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.25rem;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.social-links a {
+    color: var(--white);
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+    opacity: 1;
+}

@@ -2,7 +2,8 @@
 :root {
     --primary: #2b4c7e;
     --secondary: #567ebb;
-    --accent: #ff6b6b;
+    --accent: #F36D70;
+    --cta: #3182ce;
 }
 
 body {

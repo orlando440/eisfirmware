@@ -27,6 +27,15 @@
     form {
         margin: 0 1rem;
     }
+
+    .mission-statement {
+        margin: 0 1rem;
+        padding: 2rem;
+    }
+    
+    .mission-statement p {
+        font-size: 1rem;
+    }
 }
 
 /* Mobile Styles */
@@ -60,5 +69,13 @@
 
     form {
         padding: 1.5rem;
+    }
+
+    .logo-container {
+        text-align: center;
+    }
+    
+    .logo-sub {
+        display: none;
     }
 } 
