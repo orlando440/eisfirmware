@@ -1,11 +1,40 @@
+# robots.txt for eisfirmware.com
 User-agent: *
 Allow: /
-Disallow: /assets/
+Allow: /#services
+Allow: /#about
+Allow: /#contact
+
+# Protect private directories
 Disallow: /admin/
 Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+Disallow: /includes/
+Disallow: /assets/js/
+Disallow: /assets/css/
 
-# Sitemap
+# Allow image indexing
+Allow: /assets/images/
+
+# Crawl-delay for better server performance
+Crawl-delay: 10
+
+# Sitemap location
 Sitemap: https://eisfirmware.com/sitemap.xml
 
-# Crawl-delay
+# Additional search engine specific rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10
+
+User-agent: DuckDuckBot
+Allow: /
 Crawl-delay: 10
