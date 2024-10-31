@@ -38,32 +38,42 @@ class FormHandler {
             submitButton.innerHTML = 'Sending...';
             submitButton.disabled = true;
 
-            // Create a plain object from form data
             const formData = new FormData(this.form);
             const formObject = {};
             formData.forEach((value, key) => {
                 formObject[key] = value;
             });
 
+            console.log('Sending form data:', formObject); // Debug log
+
             const response = await fetch('https://submit-form.com/gzDDWXMhc', {
                 method: 'POST',
+                body: formData,
                 headers: {
-                    'Content-Type': 'application/json',
                     'Accept': 'application/json'
-                },
-                body: JSON.stringify(formObject)
+                }
             });
 
+            const responseData = await response.json();
+            console.log('Server response:', responseData); // Debug log
+
             if (!response.ok) {
-                throw new Error(`Form submission failed! status: ${response.status}`);
+                const errorDetails = `Status: ${response.status}, StatusText: ${response.statusText}`;
+                console.error('Form submission failed:', errorDetails, responseData);
+                throw new Error(`Form submission failed! ${errorDetails}`);
             }
 
             this.showSuccess('Thank you! Your project information has been submitted.');
             this.form.reset();
 
         } catch (error) {
-            console.error('Error:', error);
-            this.showError('There was a problem submitting your form. Please try again later.');
+            console.error('Detailed error:', {
+                message: error.message,
+                stack: error.stack,
+                response: error.response
+            });
+            
+            this.showError(`There was a problem submitting your form. Please try again later. Code ${error.message}.`);
         } finally {
             submitButton.innerHTML = originalButtonText;
             submitButton.disabled = false;
@@ -83,6 +93,16 @@ class FormHandler {
         const errorMsg = this.errorMessage.querySelector('p');
         if (errorMsg) {
             errorMsg.textContent = message;
+            // Add a "View Details" button
+            const detailsBtn = document.createElement('button');
+            detailsBtn.textContent = 'View Error Details';
+            detailsBtn.className = 'text-sm text-red-600 underline mt-2';
+            detailsBtn.onclick = () => {
+                console.log('Error occurred at:', new Date().toISOString());
+                console.log('Form data:', Object.fromEntries(new FormData(this.form)));
+                alert('Check browser console for error details (Press F12)');
+            };
+            errorMsg.appendChild(detailsBtn);
         }
         this.errorMessage.classList.remove('hidden');
         this.successMessage.classList.add('hidden');
