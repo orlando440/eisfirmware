@@ -29,6 +29,7 @@ class FormHandler {
         this.submitForm();
     }
 
+    // Submit form to submit-form.com (formspark.io)
     async submitForm() {
         const submitButton = this.form.querySelector('button[type="submit"]');
         const originalButtonText = submitButton.innerHTML;
@@ -37,20 +38,26 @@ class FormHandler {
             submitButton.innerHTML = 'Sending...';
             submitButton.disabled = true;
 
+            // Create a plain object from form data
+            const formData = new FormData(this.form);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+
             const response = await fetch('https://submit-form.com/gzDDWXMhc', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify(Object.fromEntries(new FormData(this.form)))
+                body: JSON.stringify(formObject)
             });
 
             if (!response.ok) {
-                throw new Error('Form submission failed');
+                throw new Error(`Form submission failed! status: ${response.status}`);
             }
 
-            // Show success message similar to original
             this.showSuccess('Thank you! Your project information has been submitted.');
             this.form.reset();
 
