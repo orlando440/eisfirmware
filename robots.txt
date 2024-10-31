@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /admin/
+Disallow: /cgi-bin/
+
+# Sitemap
+Sitemap: https://eisfirmware.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 10
