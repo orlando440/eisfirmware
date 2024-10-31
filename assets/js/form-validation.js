@@ -46,7 +46,7 @@ class FormHandler {
 
             console.log('Sending form data:', formObject); // Debug log
 
-            const response = await fetch('https://submit-form.com/gzDDWXMhc', {
+            const response = await fetch('https://submit-form.com/4EDnlaAwC', {
                 method: 'POST',
                 body: formData,
                 headers: {
